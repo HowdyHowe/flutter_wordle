@@ -1,6 +1,6 @@
 name: flutter_wordle_project
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -17,3 +17,11 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Fredoka
+      fonts:
+        - asset: assets/fonts/Fredoka-Regular.ttf
+        - asset: assets/fonts/Fredoka-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Fredoka-Bold.ttf
+          weight: 700
