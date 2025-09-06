@@ -1,33 +1,65 @@
 import 'package:flutter/material.dart';
 
-class Button extends StatelessWidget {
+class Button extends StatefulWidget {
   final IconData icon;
   final double width;
   final double height;
   final double iconSize;
   final bool round;
-  const Button(
+  final VoidCallback onPressed;
+  Button(
       {super.key,
       required this.icon,
       required this.width,
       required this.height,
       required this.iconSize,
-      required this.round});
+      required this.round,
+      required this.onPressed});
+
+  @override
+  State<Button> createState() => _ButtonState();
+}
+
+class _ButtonState extends State<Button> {
+  double _scale = 1.0;
+
+  void _setTapDown(TapDownDetails details) {
+    setState(() => _scale = 0.9);
+  }
+
+  void _setTapUp(TapUpDetails details) {
+    setState(() => _scale = 1.0);
+  }
+
+  void _setTapCancel() {
+    setState(() => _scale = 1.0);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: width,
-        height: height,
-        decoration: round
-            ? BoxDecoration(color: Color(0xFFdfe2ff), shape: BoxShape.circle)
-            : BoxDecoration(
-                color: Color(0xFFdfe2ff),
-                borderRadius: BorderRadius.circular(15)),
-        child: Center(
-            child: Icon(
-          icon,
-          size: iconSize,
-        )));
+    return GestureDetector(
+      onTap: widget.onPressed,
+      onTapDown: _setTapDown,
+      onTapUp: _setTapUp,
+      onTapCancel: _setTapCancel,
+      child: AnimatedScale(
+        duration: Duration(milliseconds: 75),
+        scale: _scale,
+        child: Container(
+            width: widget.width,
+            height: widget.height,
+            decoration: widget.round
+                ? BoxDecoration(
+                    color: Color(0xFFdfe2ff), shape: BoxShape.circle)
+                : BoxDecoration(
+                    color: Color(0xFFdfe2ff),
+                    borderRadius: BorderRadius.circular(15)),
+            child: Center(
+                child: Icon(
+              widget.icon,
+              size: widget.iconSize,
+            ))),
+      ),
+    );
   }
 }
