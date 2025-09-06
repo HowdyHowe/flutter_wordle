@@ -15,17 +15,20 @@ class _HomePageState extends State<HomePage> {
         body: Center(
       child: Stack(
         children: [
-          Positioned(bottom: 20, left: 20, child: Text("ini contoh text")),
+          Positioned(
+              bottom: 10,
+              left: 10,
+              child: Image.asset(
+                "assets/images/logo.png",
+                width: 50,
+              )),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 "WORDLE.",
-                style: TextStyle(
-                    fontFamily: "Fredoka",
-                    fontSize: 50,
-                    fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 50, fontWeight: FontWeight.w600),
               ),
               // Container(
               //   width: 150,
@@ -44,16 +47,6 @@ class _HomePageState extends State<HomePage> {
               // ),
               Column(
                 children: [
-                  // Container(
-                  //     width: 100,
-                  //     height: 100,
-                  //     decoration: BoxDecoration(
-                  //         color: Color(0xFFdfe2ff), shape: BoxShape.circle),
-                  //     child: Center(
-                  //         child: Icon(
-                  //       Icons.play_arrow_rounded,
-                  //       size: 60,
-                  //     ))),
                   Button(
                       onPressed: () {
                         Navigator.pushNamed(context, "/game");
@@ -71,7 +64,9 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Button(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, "/info");
+                          },
                           icon: Icons.info_rounded,
                           width: 70,
                           height: 70,
@@ -81,7 +76,9 @@ class _HomePageState extends State<HomePage> {
                         width: 10,
                       ),
                       Button(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, "/setting");
+                          },
                           icon: Icons.settings_rounded,
                           width: 70,
                           height: 70,
