@@ -48,6 +48,7 @@ class _HomePageState extends State<HomePage> {
               Column(
                 children: [
                   Button(
+                      isIcon: true,
                       onPressed: () {
                         Navigator.pushNamed(context, "/game");
                       },
@@ -64,6 +65,7 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Button(
+                          isIcon: true,
                           onPressed: () {
                             Navigator.pushNamed(context, "/info");
                           },
@@ -76,6 +78,7 @@ class _HomePageState extends State<HomePage> {
                         width: 10,
                       ),
                       Button(
+                          isIcon: true,
                           onPressed: () {
                             Navigator.pushNamed(context, "/setting");
                           },

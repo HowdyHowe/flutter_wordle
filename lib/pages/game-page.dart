@@ -14,7 +14,7 @@ class _GamePageState extends State<GamePage> {
     super.initState();
   }
 
-  int boxCount = 42;
+  int boxCount = 25;
 
   void changeBox(int box) {
     setState(() {
@@ -35,57 +35,60 @@ class _GamePageState extends State<GamePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Button(
-                    icon: Icons.face_5_rounded,
+                    isIcon: false,
+                    text: "4",
                     width: 60,
                     height: 60,
                     iconSize: 30,
                     round: true,
-                    onPressed: () => changeBox(24)),
+                    onPressed: () => changeBox(20)),
                 Button(
-                    icon: Icons.face_5_rounded,
+                    isIcon: false,
+                    text: "5",
+                    width: 60,
+                    height: 60,
+                    iconSize: 30,
+                    round: true,
+                    onPressed: () => changeBox(25)),
+                Button(
+                    isIcon: false,
+                    text: "6",
                     width: 60,
                     height: 60,
                     iconSize: 30,
                     round: true,
                     onPressed: () => changeBox(30)),
                 Button(
-                    icon: Icons.face_5_rounded,
+                    isIcon: false,
+                    text: "7",
                     width: 60,
                     height: 60,
                     iconSize: 30,
                     round: true,
-                    onPressed: () => changeBox(36)),
-                Button(
-                    icon: Icons.face_5_rounded,
-                    width: 60,
-                    height: 60,
-                    iconSize: 30,
-                    round: true,
-                    onPressed: () => changeBox(42)),
+                    onPressed: () => changeBox(35)),
               ],
             ),
           ),
           Center(
             child: Container(
               width: boxCount * 10,
-              height: boxCount * 10,
               margin: EdgeInsets.all(10),
               child: GridView.builder(
                   padding: EdgeInsets.all(0),
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 60,
+                    maxCrossAxisExtent: 50,
                     childAspectRatio: 1,
                   ),
-                  itemCount: boxCount,
+                  itemCount: (boxCount + boxCount / 5).toInt(),
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
-                      margin: EdgeInsets.all(3),
+                      margin: EdgeInsets.all(1),
                       decoration: BoxDecoration(
                           border:
                               Border.all(width: 2, color: Color(0xFFd1d1d1)),
-                          borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(7)),
                     );
                   }),
             ),

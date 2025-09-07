@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 
 class Button extends StatefulWidget {
-  final IconData icon;
+  final bool isIcon;
+  final IconData? icon;
+  final String? text;
   final double width;
   final double height;
   final double iconSize;
   final bool round;
   final VoidCallback onPressed;
-  Button(
-      {super.key,
-      required this.icon,
-      required this.width,
-      required this.height,
-      required this.iconSize,
-      required this.round,
-      required this.onPressed});
+  Button({
+    super.key,
+    required this.isIcon,
+    this.text,
+    this.icon,
+    required this.width,
+    required this.height,
+    required this.iconSize,
+    required this.round,
+    required this.onPressed,
+  });
 
   @override
   State<Button> createState() => _ButtonState();
@@ -55,10 +60,14 @@ class _ButtonState extends State<Button> {
                     color: Color(0xFFdfe2ff),
                     borderRadius: BorderRadius.circular(15)),
             child: Center(
-                child: Icon(
-              widget.icon,
-              size: widget.iconSize,
-            ))),
+                child: widget.isIcon
+                    ? Icon(
+                        widget.icon,
+                        size: widget.iconSize,
+                      )
+                    : Text(
+                        widget.text ?? "",
+                      ))),
       ),
     );
   }
