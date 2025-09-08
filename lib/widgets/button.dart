@@ -51,6 +51,7 @@ class _ButtonState extends State<Button> {
         duration: Duration(milliseconds: 75),
         scale: _scale,
         child: Container(
+            margin: EdgeInsets.all(3),
             width: widget.width,
             height: widget.height,
             decoration: widget.round

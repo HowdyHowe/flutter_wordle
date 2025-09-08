@@ -40,7 +40,7 @@ class _GamePageState extends State<GamePage> {
                     width: 60,
                     height: 60,
                     iconSize: 30,
-                    round: true,
+                    round: false,
                     onPressed: () => changeBox(20)),
                 Button(
                     isIcon: false,
@@ -48,7 +48,7 @@ class _GamePageState extends State<GamePage> {
                     width: 60,
                     height: 60,
                     iconSize: 30,
-                    round: true,
+                    round: false,
                     onPressed: () => changeBox(25)),
                 Button(
                     isIcon: false,
@@ -56,7 +56,7 @@ class _GamePageState extends State<GamePage> {
                     width: 60,
                     height: 60,
                     iconSize: 30,
-                    round: true,
+                    round: false,
                     onPressed: () => changeBox(30)),
                 Button(
                     isIcon: false,
@@ -64,7 +64,7 @@ class _GamePageState extends State<GamePage> {
                     width: 60,
                     height: 60,
                     iconSize: 30,
-                    round: true,
+                    round: false,
                     onPressed: () => changeBox(35)),
               ],
             ),
