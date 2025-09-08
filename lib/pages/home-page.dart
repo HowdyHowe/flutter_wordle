@@ -86,6 +86,19 @@ class _HomePageState extends State<HomePage> {
                           width: 70,
                           height: 70,
                           iconSize: 32,
+                          round: false),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Button(
+                          isIcon: true,
+                          onPressed: () {
+                            Navigator.pushNamed(context, "/test");
+                          },
+                          icon: Icons.expand_circle_down,
+                          width: 70,
+                          height: 70,
+                          iconSize: 32,
                           round: false)
                     ],
                   ),
