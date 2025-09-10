@@ -4,7 +4,6 @@ import 'package:flutter_wordle_project/pages/game-page.dart';
 import 'package:flutter_wordle_project/pages/home-page.dart';
 import 'package:flutter_wordle_project/pages/info-page.dart';
 import 'package:flutter_wordle_project/pages/setting-page.dart';
-import 'package:flutter_wordle_project/pages/test.dart';
 import 'package:flutter_wordle_project/redux/app-reducer.dart';
 import 'package:flutter_wordle_project/redux/app-state.dart';
 import 'package:redux/redux.dart';
@@ -48,7 +47,7 @@ class MainApp extends StatelessWidget {
 
 class ViewModel {
   final int boxCount;
-  final Function(int)? setBoxCount;
+  final Function(int) setBoxCount;
 
-  ViewModel({required this.boxCount, this.setBoxCount});
+  ViewModel({required this.boxCount, required this.setBoxCount});
 }

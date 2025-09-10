@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_wordle_project/main.dart';
 import 'package:flutter_wordle_project/redux/app-state.dart';
+import 'package:flutter_wordle_project/redux/user/user-action.dart';
 
 class GamePage extends StatefulWidget {
   const GamePage({super.key});
@@ -28,7 +29,10 @@ class _GamePageState extends State<GamePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: StoreConnector<AppState, ViewModel>(
-        converter: (store) => ViewModel(boxCount: store.state.user.boxCount),
+        converter: (store) => ViewModel(
+          boxCount: store.state.user.boxCount,
+          setBoxCount: (number) => store.dispatch(SetBoxCount(number)),
+        ),
         builder: (context, vm) => Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

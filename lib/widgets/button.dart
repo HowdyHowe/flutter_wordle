@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Button extends StatefulWidget {
   final bool isIcon;
+  final bool isActive;
   final IconData? icon;
   final String? text;
   final double width;
@@ -11,12 +12,13 @@ class Button extends StatefulWidget {
   final VoidCallback onPressed;
   Button({
     super.key,
-    required this.isIcon,
     this.text,
     this.icon,
+    required this.isActive,
+    required this.iconSize,
+    required this.isIcon,
     required this.width,
     required this.height,
-    required this.iconSize,
     required this.round,
     required this.onPressed,
   });
@@ -56,9 +58,10 @@ class _ButtonState extends State<Button> {
             height: widget.height,
             decoration: widget.round
                 ? BoxDecoration(
-                    color: Color(0xFFdfe2ff), shape: BoxShape.circle)
+                    color: Color(widget.isActive ? 0xFFc7c9ff : 0xFFdfe2ff),
+                    shape: BoxShape.circle)
                 : BoxDecoration(
-                    color: Color(0xFFdfe2ff),
+                    color: Color(widget.isActive ? 0xFFc7c9ff : 0xFFdfe2ff),
                     borderRadius: BorderRadius.circular(15)),
             child: Center(
                 child: widget.isIcon
