@@ -48,7 +48,7 @@ class MainApp extends StatelessWidget {
 
 class ViewModel {
   final int boxCount;
-  final Function(int) setBoxCount;
+  final Function(int)? setBoxCount;
 
-  ViewModel({required this.boxCount, required this.setBoxCount});
+  ViewModel({required this.boxCount, this.setBoxCount});
 }
