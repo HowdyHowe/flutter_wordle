@@ -5,22 +5,22 @@ import 'package:flutter_wordle_project/pages/home-page.dart';
 import 'package:flutter_wordle_project/pages/info-page.dart';
 import 'package:flutter_wordle_project/pages/setting-page.dart';
 import 'package:flutter_wordle_project/pages/test.dart';
-import 'package:flutter_wordle_project/store/app-state.dart';
-import 'package:flutter_wordle_project/store/reducer.dart';
+import 'package:flutter_wordle_project/redux/app-reducer.dart';
+import 'package:flutter_wordle_project/redux/app-state.dart';
 import 'package:redux/redux.dart';
 
 void main() {
-  final store = Store<AppState>(
-    appReducer,
-    initialState: AppState.initial(),
-  );
+  final store = Store<AppState>(appReducer, initialState: AppState.initial());
 
   runApp(MainApp(store: store));
 }
 
 class MainApp extends StatelessWidget {
   final Store<AppState> store;
-  MainApp({super.key, required this.store});
+  MainApp({
+    super.key,
+    required this.store,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +39,16 @@ class MainApp extends StatelessWidget {
           "/game": (context) => GamePage(),
           "/setting": (context) => SettingPage(),
           "/info": (context) => InfoPage(),
-          "/test": (context) => CounterPage(),
+          // "/test": (context) => CounterPage(),
         },
       ),
     );
   }
+}
+
+class ViewModel {
+  final int boxCount;
+  final Function(int) setBoxCount;
+
+  ViewModel({required this.boxCount, required this.setBoxCount});
 }
